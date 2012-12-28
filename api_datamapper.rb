@@ -6,7 +6,7 @@ require 'sinatra'
 
 
 #DataMapper.setup(:default, "sqlite://root:love13@localhost/interfolio_primary")
-DataMapper.setup(:default, "mysql://root:love13@localhost/interfolio_primary")
+DataMapper.setup(:default, "mysql://root:love13@localhost/int_primary")
 
 =begin
 DataMapper.setup(:default, 

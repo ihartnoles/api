@@ -10,7 +10,7 @@ dbconfig = {
 			:host     => "localhost",
 			:username => "root",
 			:password => "love13",
-			:database => "interfolio_primary"
+			:database => "int_primary"
 		}
 
 ActiveRecord::Base.establish_connection(dbconfig)

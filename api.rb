@@ -4,7 +4,7 @@ require 'json'
 require 'builder'
 require 'sinatra'
 
-@@mysqlclient = Mysql2::Client.new(:host => "localhost",:username => "root",:password => "love13" ,:database => "interfolio_primary")
+@@mysqlclient = Mysql2::Client.new(:host => "localhost",:username => "root",:password => "love13" ,:database => "int_primary")
 
 #test 
 get '/' do 
@@ -14,7 +14,7 @@ end
 #return all positions in JSON
 get '/positions.json' do
   res = Array.new
-  result = @@mysqlclient.query("SELECT * FROM interfolio_primary.positions")
+  result = @@mysqlclient.query("SELECT * FROM int_primary.positions")
   result.each do |row|
   	res.push(row)
   end
@@ -23,7 +23,7 @@ end
 
 #return all positions in XML
 get '/positions.xml' do  
-  result = @@mysqlclient.query("SELECT * FROM interfolio_primary.positions")
+  result = @@mysqlclient.query("SELECT * FROM int_primary.positions")
   #use builder to generate xml response
   builder do |xml|
   	xml.instruct!
@@ -43,7 +43,7 @@ get '/position/:id' do
   #create array to hold results
   res = Array.new
   #query the database by id
-  result = @@mysqlclient.query("SELECT * FROM interfolio_primary.positions WHERE id = #{params[:id]}")
+  result = @@mysqlclient.query("SELECT * FROM int_primary.positions WHERE id = #{params[:id]}")
     
   #loop over result set
   result.each do |row|
